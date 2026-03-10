@@ -1,0 +1,15 @@
+title: "Formal Security for Web Technologies"
+email: "formalsec@example.com" # Should probably be updated by the user
+description: >- # this means to ignore newlines until "baseurl:"
+  Research group focusing on formal methods and security for web technologies.
+  Based at INESC-ID Lisboa, Portugal.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://formalsec.github.io" # the base hostname & protocol for your site
+github_username: "formalsec"
+
+# Build settings
+theme: jekyll-theme-minimal # Custom layouts are in _layouts/
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap

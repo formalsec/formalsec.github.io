@@ -1,0 +1,37 @@
+- name: "smtml"
+  description: "An SMT solver frontend for OCaml, providing a unified interface for multiple solvers."
+  repo: "formalsec/smtml"
+  homepage: "https://formalsec.github.io/smtml"
+  tags: ["OCaml", "Formal Methods", "SMT Solver"]
+
+- name: "graphjs"
+  description: "An MDG-based static vulnerability scanner for npm packages, detecting taint-style and prototype pollution vulnerabilities."
+  repo: "formalsec/graphjs"
+  homepage: "https://formalsec.github.io/graphjs"
+  tags: ["Security", "JavaScript", "Static Analysis"]
+
+- name: "owi"
+  description: "A symbolic execution engine for WebAssembly (superseded wasp). Developed by OCamlPro."
+  repo: "OCamlPro/owi"
+  homepage: "https://ocamlpro.github.io/owi"
+  tags: ["WebAssembly", "Symbolic Execution", "OCaml"]
+
+- name: "wasp"
+  description: "A symbolic execution engine for WebAssembly, providing a framework for testing and verifying Wasm modules."
+  repo: "formalsec/wasp"
+  tags: ["WebAssembly", "Symbolic Execution", "Testing"]
+
+- name: "ocaml-cvc5"
+  description: "OCaml bindings for the cvc5 SMT solver, allowing easy integration of cvc5 into OCaml projects."
+  repo: "formalsec/ocaml-cvc5"
+  tags: ["OCaml", "SMT", "cvc5"]
+
+- name: "explode-js"
+  description: "Automated exploit generation for Node.js packages based on static analysis findings."
+  repo: "formalsec/explode-js"
+  tags: ["Security", "Exploit Generation", "Node.js"]
+
+- name: "whilloc"
+  description: "A simple 'while'-like programming language with memory allocation support, used for educational and research purposes."
+  repo: "formalsec/whilloc"
+  tags: ["PL", "Formal Verification"]

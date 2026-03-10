@@ -1,122 +1,141 @@
-<!doctype html>
+---
+layout: default
+---
 
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Graph.js: Static Vulnerability Scanner for npm packages</title>
-    <meta name="description" content="Graph.js: Static Vulnerability Scanner for npm packages">
-    <meta name="viewport" content="width=device-width">
-    <!-- Full jQuery is required -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <!-- Boostrap 4 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!-- Bootswatch 4 -->
-    <!--
-        You can change this skin if you like to any from: https://www.bootstrapcdn.com/bootswatch/
-        Generate SRI hashes using this: https://www.srihash.org/
-      -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/united/bootstrap.min.css" integrity="sha384-WTtvlZJeRyCiKUtbQ88X1x9uHmKi0eHCbQ8irbzqSLkE0DpAZuixT5yFvgX0CjIu" crossorigin="anonymous">
-    <!-- Showdown markdown renderer -->
-    <script src="https://cdn.rawgit.com/showdownjs/showdown/1.9.0/dist/showdown.min.js" integrity="sha384-KpuxVjTC2hfOkg5KV3jSdx1eA6xy0PGS0wNfDrwf4sZBnZdzlIsnkH+LzLkavmH7" crossorigin="anonymous"></script>
-    <!-- Page-specific script -->
-    <script>
-        // Configure the page here.
-        const username = "formalsec";
-        const repo = "graphjs";
-
-        // Pre-calculate some URLs.
-        const userPage = `https://github.com/${username}`;
-        const projectPage = `${userPage}/${repo}`;
-
-        // This runs on page load.
-        $(document).ready(function() {
-            // Update links etc.
-            $(".jsProjPage").attr("href", projectPage);
-            $(".jsUsername").attr("href", userPage);
-            $(".jsUsername").html(username);
-
-            // Enable support for tables.
-            showdown.setOption("tables", true);
-
-            // Load markdown from the readme, render it and display.
-            $.ajax({
-                url: `https://raw.githubusercontent.com/${username}/${repo}/main/README.md`,
-                success: function(result) {
-                    var converter = new showdown.Converter();
-                    var logoRemoved = result.replace(/!\[logo\]\(.+?\)/gi, ""); // Remove logo.
-                    var urlsChanged = logoRemoved.replace(/!\[(.+?)\]\(docs\/(.+?)\)/gi, "![$1]($2)"); // Trim URLs.
-                    $("#content").html(converter.makeHtml(urlsChanged));
-                },
-                error: function() {
-                    // Show error message.
-                    $("#content").html(`<p class="loadErr">Error loading page, visit it on <a href="${projectPage}">GitHub</a> instead.</p>`);
-                }
-            });
-        });
-    </script>
-    <!-- Page-specific styles -->
-    <style>
-        body {
-            margin: 36px;
-        }
-        a {
-            color: #aa0000;
-        }
-        h2,h3 {
-            margin-top: 1em;
-        }
-        h1 {
-
-        }
-        pre {
-          margin: 0em 3em 1em 3em;
-          background-color: lightgrey;
-          padding: 0.5em;
-        }
-        .logo {
-          width: 15%;
-        }
-        .loader {
-            color: #505050;
-            text-align: center;
-        }
-        .loadErr {
-            color: #7f0000;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <img class="logo" src="assets/logo.png">
-            </div>
+<section class="py-5 mt-5">
+  <div class="container">
+    <header class="row align-items-center mb-5" id="about">
+      <div class="col-md-3 text-center mb-4 mb-md-0">
+        <img src="assets/logo.png" class="img-fluid" alt="Formal Security Logo" style="max-height: 180px; width: auto;">
+      </div>
+      <div class="col-md-9">
+        <h1 class="display-4">Formal Security for Web Technologies</h1>
+        <p class="lead mt-3 text-muted">
+          We use <strong>Formal Methods</strong> to enhance the security and reliability of modern web technologies. 
+          Our research focuses on <strong>Static Analysis</strong>, <strong>Symbolic Execution</strong>, and <strong>Automated Exploit Generation</strong> 
+          for languages like JavaScript and WebAssembly.
+        </p>
+        <div class="mt-4">
+          <span class="badge rounded-pill bg-light text-dark px-3 py-2 border me-2">Formal Verification</span>
+          <span class="badge rounded-pill bg-light text-dark px-3 py-2 border me-2">Web Security</span>
+          <span class="badge rounded-pill bg-light text-dark px-3 py-2 border me-2">Program Analysis</span>
+          <span class="badge rounded-pill bg-light text-dark px-3 py-2 border me-2">SMT Solving</span>
         </div>
-        <div class="row">
-            <!-- Rendered markdown is loaded in the following element -->
-            <div class="col-md-12" id="content">
-                <!-- Loader is shown initially -->
-                <div class="loader">
-                    <p>
-                        Loading page content...
-                    </p>
-                    <img src="assets/loader.gif">
-                </div>
+      </div>
+    </header>
+  </div>
+</section>
+
+<section id="projects" class="py-5">
+  <div class="container">
+    <h2 class="section-title">Research Projects</h2>
+    <p class="text-muted mb-4">We develop open-source tools to solve real-world security challenges.</p>
+    
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      {% for project in site.data.projects %}
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title text-primary">{{ project.name }}</h5>
+            <p class="card-text">{{ project.description }}</p>
+            <div class="mb-3">
+              {% for tag in project.tags %}
+              <span class="tag">{{ tag }}</span>
+              {% endfor %}
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <hr>
+          </div>
+          <div class="card-footer bg-white border-0 pb-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <a href="https://github.com/{{ project.repo }}" target="_blank" class="btn btn-sm btn-outline-dark">
+                <i class="fab fa-github"></i> Repository
+              </a>
+              {% if project.homepage %}
+              <a href="{{ project.homepage }}" class="btn btn-sm btn-primary">
+                Learn More <i class="fas fa-arrow-right ms-1"></i>
+              </a>
+              {% endif %}
             </div>
+          </div>
         </div>
-        <div class="row">
-            <div class="col-md-12 text-center text-muted">
-                <small>Copyright &copy; <a class="jsUsername"></a> | <a class="jsProjPage">GitHub</a> | Powered by <a target="_blank" href="https://lambdacasserole.github.io/rollout/">Rollout</a></small>
-            </div>
-        </div>
+      </div>
+      {% endfor %}
     </div>
-</body>
-</html>
+  </div>
+</section>
+
+<div class="container my-5">
+  <section id="team" class="py-5 bg-light rounded-4 px-4">
+    <div class="container">
+      <h2 class="section-title">Our Team</h2>
+      <div class="row mt-4">
+        {% for person in site.data.people %}
+        <div class="col-md-4 mb-4">
+          <div class="d-flex align-items-start">
+            <div class="profile-img me-3">
+              <i class="fas fa-user-circle fa-5x text-muted"></i>
+            </div>
+            <div>
+              <h5 class="mb-0">{{ person.name }}</h5>
+              <p class="text-primary small mb-1">{{ person.role }}</p>
+              {% if person.github %}
+              <a href="https://github.com/{{ person.github }}" target="_blank" class="text-muted small">
+                <i class="fab fa-github"></i> @{{ person.github }}
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>
+
+<section id="publications" class="py-5">
+  <div class="container">
+    <h2 class="section-title">Selected Publications</h2>
+    <div class="list-group mt-4">
+      {% for pub in site.data.publications %}
+      <div class="list-group-item list-group-item-action border-0 px-0 mb-3">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1 text-primary">{{ pub.title }}</h5>
+        </div>
+        <p class="mb-1">{{ pub.authors }}</p>
+        <small class="text-muted">{{ pub.venue }}</small>
+        {% if pub.link %}
+        <a href="{{ pub.link }}" target="_blank" class="ms-3 small text-primary"><i class="fas fa-external-link-alt"></i> Paper</a>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="py-5">
+  <div class="container">
+    <h2 class="section-title">Contact & Location</h2>
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <p>
+          We are part of <strong>INESC-ID</strong> and the <strong>Instituto Superior Técnico (IST)</strong> at the University of Lisbon.
+        </p>
+        <address>
+          <strong>INESC-ID Lisboa</strong><br>
+          Rua Alves Redol 9<br>
+          1000-029 Lisboa, Portugal
+        </address>
+        <p>
+          <i class="fas fa-envelope me-2 text-primary"></i> <a href="mailto:formalsec@example.com">formalsec@example.com</a>
+        </p>
+      </div>
+      <div class="col-md-6 text-center">
+         <div class="p-4 bg-white shadow-sm border rounded-4">
+            <i class="fas fa-map-marker-alt fa-3x text-primary mb-3"></i>
+            <h5>Find us in Lisbon</h5>
+            <p class="small text-muted">Our research takes place in the heart of Portugal's capital.</p>
+            <a href="https://www.google.com/maps/search/INESC-ID+Lisboa" target="_blank" class="btn btn-sm btn-outline-primary">View on Maps</a>
+         </div>
+      </div>
+    </div>
+  </div>
+</section>

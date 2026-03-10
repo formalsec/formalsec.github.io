@@ -1,0 +1,29 @@
+- name: "José Santos"
+  github: "j3fsantos"
+  role: "Principal Investigator / Researcher"
+  affiliation: "INESC-ID / IST, University of Lisbon"
+
+- name: "André Nascimento"
+  github: "andreffnascimento"
+  role: "PhD Student"
+
+- name: "Filipe Marques"
+  github: "filipeom"
+  role: "PhD Student"
+  description: "Working on SMT solving, symbolic execution, and JavaScript security."
+
+- name: "Frederico Ramos"
+  github: "frediramos"
+  role: "PhD Student"
+
+- name: "João Pereira"
+  github: "joaomhmpereira"
+  role: "PhD Student"
+
+- name: "José Afonso"
+  github: "zezeafonso"
+  role: "PhD Student"
+
+- name: "Rafael Gonçalves"
+  github: "rafa1906"
+  role: "PhD Student"
