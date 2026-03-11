@@ -1,4 +1,24 @@
+- title: "Smt.ml: A Multi-Backend Frontend for SMT Solvers in OCaml"
+  authors: "João Madeira Pereira, Filipe Marques, Pedro Adão, and Hichem Rami Ait El Hara, Léo Andrès, Arthur Carcano, Pierre Chambart, Petar Maksimović, Nuno Santos, José Fragoso Santos"
+  venue: "TACAS'26"
+  link: "https://joaomhmpereira.github.io/assets/pdf/smtml.pdf"
+
+- title: "Specification-Driven Generation of Summaries for Symbolic Execution"
+  authors: "Rafael Gonçalves, Frederico Ramos, Pedro Adão, José Fragoso Santos"
+  venue: "ESOP'26"
+  link: "https://dl.acm.org/doi/10.1145/3656394"
+
 - title: "Efficient Static Vulnerability Analysis for JavaScript with Multiversion Dependency Graphs"
   authors: "Mafalda Ferreira, Miguel Monteiro, Tiago Brito, Miguel E. Coimbra, Nuno Santos, Limin Jia, and José Fragoso Santos"
   venue: "PLDI'24"
   link: "https://dl.acm.org/doi/10.1145/3656394"
+
+- title: "Toward Tool-Independent Summaries for Symbolic Execution"
+  authors: "Frederico Ramos, Nuno Sabino, Pedro Adão, David A. Naumann, and José Fragoso Santos"
+  venue: "ECOOP'23"
+  link: "https://doi.org/10.4230/LIPIcs.ECOOP.2023.24"
+
+- title: "Concolic Execution for WebAssembly"
+  authors: "Filipe Marques, José Fragoso Santos, Nuno Santos, and Pedro Adão"
+  venue: "ECOOP'22"
+  link: "https://doi.org/10.4230/LIPIcs.ECOOP.2022.11"
